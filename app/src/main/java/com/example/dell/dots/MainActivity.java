@@ -3,6 +3,7 @@ package com.example.dell.dots;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.CountDownTimer;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -33,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     private int score;
     private int level=0;
     private int life=3;
+    private int timeLevel=3;
 
 
 
@@ -52,10 +54,12 @@ public class MainActivity extends AppCompatActivity {
         imageDot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 StartCountDown(false);
                 HandingScore();
                 HandingLevel();
                 HandingTouch();
+
 
 
             }
@@ -65,6 +69,10 @@ public class MainActivity extends AppCompatActivity {
         imageRedDot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                MediaPlayer loseplayer2= MediaPlayer.create(MainActivity.this,R.raw.laugh);
+                loseplayer2.start();
+
 
                 if(life==1)
                 {
@@ -128,11 +136,11 @@ public class MainActivity extends AppCompatActivity {
 
     private void StartCountDown(boolean flag) {
         if (flag == true) {
-            time = 3;
-            countDownTimer = new CountDownTimer(time * 1000, 1000) {
+            time = timeLevel;
+            countDownTimer = new CountDownTimer(time * 1000, 1) {
                 @Override
                 public void onTick(long millisUntilFinished) {
-                    txtTime.setText("" + (millisUntilFinished / 1000));
+                    txtTime.setText("" + ((millisUntilFinished / 1)-1));
 
                 }
 
@@ -152,11 +160,11 @@ public class MainActivity extends AppCompatActivity {
         else if(flag==false)
         {
             countDownTimer.cancel();
-            time = 3;
-            countDownTimer = new CountDownTimer(time * 1000, 1000) {
+            time = timeLevel;
+            countDownTimer = new CountDownTimer(time * 1000, 1) {
                 @Override
                 public void onTick(long millisUntilFinished) {
-                    txtTime.setText("" + ((millisUntilFinished / 1000)));
+                    txtTime.setText("" + ((millisUntilFinished / 1)-1));
                 }
 
                 @Override
@@ -189,6 +197,7 @@ public class MainActivity extends AppCompatActivity {
         if(level>=5)
         {
             RandomRed(level);
+            timeLevel=2;
         }
 
 
@@ -214,20 +223,18 @@ public class MainActivity extends AppCompatActivity {
     private void GameOver()
     {
         countDownTimer.cancel();
-        countDownTimer.cancel();
-        countDownTimer.cancel();
-        time=0;
+
         Toast.makeText(MainActivity.this,"Game Over :(",Toast.LENGTH_SHORT).show();
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
         builder.setTitle("Confirm");
-        builder.setMessage("Game over , Do you play again?");
+        builder.setMessage("Game over , Do you play again?\nHigh Score : "+score);
 
         builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
 
             public void onClick(DialogInterface dialog, int which) {
                 // Do nothing but close the dialog
-
+                countDownTimer.cancel();
                 time=3;
                 score=0;
                 level=0;
