@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.dell.dots.MainActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="fill_horizontal">
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Time:"
+            android:textSize="24sp"
+            />
+
+
+        <TextView
+            android:id="@+id/txtTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:width="50dp"
+            android:text="3"
+            android:textSize="30sp"
+            />
+        <TextView
+            android:id="@+id/txtScore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="0"
+            android:textSize="30sp"
+            android:width="130dp"
+            android:textColor="@android:color/holo_red_dark"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Level: "
+            android:textSize="24sp"
+
+            />
+
+        <TextView
+            android:id="@+id/txtLevel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textSize="30sp"
+            android:gravity="end"/>
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="end">
+        <ImageView
+            android:id="@+id/life1"
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/heart"/>
+        <ImageView
+            android:id="@+id/life2"
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/heart"/>
+        <ImageView
+            android:id="@+id/life3"
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/heart"/>
+
+    </LinearLayout>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/line"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/layoutID">
+
+
+        <ImageView
+            android:id="@+id/imageDot"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/circleblue"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="46dp"
+            tools:ignore="MissingConstraints" />
+        <ImageView
+            android:id="@+id/imageRedDot"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/circlered"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="46dp"
+            tools:ignore="MissingConstraints" />
+
+
+    </LinearLayout>
+
+
+</LinearLayout>
