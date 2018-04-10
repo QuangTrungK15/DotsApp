@@ -187,6 +187,9 @@ public class MainActivity extends AppCompatActivity {
     private void HandingLevel()
     {
         if(score%10==0) {
+            MediaPlayer loseplayer= MediaPlayer.create(MainActivity.this,R.raw.yeahho);
+            loseplayer.start();
+
             level++;
             txtLevel.setText(String.valueOf(level));
             imageDot.getLayoutParams().height = imageDot.getLayoutParams().height-10;
