@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
     private int score;
     private int level=0;
     private int life=3;
-    private int timeLevel=3;
+    private int timeLevel=2;
 
 
 
@@ -70,8 +70,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                MediaPlayer loseplayer2= MediaPlayer.create(MainActivity.this,R.raw.laugh);
-                loseplayer2.start();
+//                MediaPlayer loseplayer2= MediaPlayer.create(MainActivity.this,R.raw.laugh);
+//                loseplayer2.start();
 
 
                 if(life==1)
@@ -187,8 +187,8 @@ public class MainActivity extends AppCompatActivity {
     private void HandingLevel()
     {
         if(score%10==0) {
-            MediaPlayer loseplayer= MediaPlayer.create(MainActivity.this,R.raw.yeahho);
-            loseplayer.start();
+            //MediaPlayer loseplayer= MediaPlayer.create(MainActivity.this,R.raw.yeahho);
+            //loseplayer.start();
 
             level++;
             txtLevel.setText(String.valueOf(level));
@@ -200,7 +200,7 @@ public class MainActivity extends AppCompatActivity {
         if(level>=5)
         {
             RandomRed(level);
-            timeLevel=2;
+            timeLevel=1;
         }
 
 
@@ -269,7 +269,7 @@ public class MainActivity extends AppCompatActivity {
     private void RandomBlue()
     {
         int x = r.nextInt(600+1);   //((600-0) + 1)+0
-        int y = r.nextInt((800 - 300)+1) + 300;
+        int y = r.nextInt((800 - 200)+1) + 200;
 
         Animation animation1 = AnimationUtils.loadAnimation(getApplicationContext(),
                 R.anim.fade);
@@ -288,7 +288,7 @@ public class MainActivity extends AppCompatActivity {
     private void RandomRed(int level) {
         if (level >= 5) {
             int x = r.nextInt(600 + 1);   //((600-0) + 1)+0
-            int y = r.nextInt((800 - 300) + 1) + 300;
+            int y = r.nextInt((800 - 200) + 1) + 200;
 
             Animation animation1 = AnimationUtils.loadAnimation(getApplicationContext(),
                     R.anim.fade);
